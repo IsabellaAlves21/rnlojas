@@ -13,11 +13,13 @@ export default function index() {
             <Image source={require('../assets/isinha.png.jpg')}
             resizeMode='contain'
             style={styles.logo}/>
+            <View style={styles.buttonAreaContainer}>
+            <View style={styles.tituloContainer}>
             <Text style={[styles.titulo, styles.destaque]}>Juka's</Text>
             <Text style={styles.titulo}>Store</Text>
+            </View>
             <Text style={styles.text}>Aqui seu dinheiro rende mais!</Text>
             <Button text="Começar as Compras" function={handlePressButton}/>
-        <View style={styles.tituloContainer}>
             <Text>Sou a Index</Text>
             <Link href="(tabs)/home">Meu Link</Link>
         </View>
@@ -48,7 +50,12 @@ const styles = StyleSheet.create({
         gap:8,
     },
     destaque:{
-        color:"#E67A31"
+        color:"#E67A31",
+    },
+    buttonAreaContainer: {
+        gap:16,
+        justifyContent:'center',
+        alignItems:'center'
     }
 
 });
