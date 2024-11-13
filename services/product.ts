@@ -1,6 +1,6 @@
 import { data } from "../data/database"
 
-function getAllProducts(){
+export function getAllProducts(){
     return data.products;
 }
 
