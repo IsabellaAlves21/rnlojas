@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     borderRadius:12
   },
   textContainer:{
-    flex:1
+    flex:1,
+    justifyContent: 'center',
   },
   destaque:{
     fontWeight:'bold',

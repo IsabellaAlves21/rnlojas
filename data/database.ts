@@ -2,7 +2,7 @@ type Data = {
     categories: Category[],
     products: Product[]
 };
-export const data: Data = {
+export const data = {
     categories: [
         {
             id: 1,
