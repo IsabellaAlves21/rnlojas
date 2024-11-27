@@ -1,7 +1,4 @@
-type Data = {
-    categories: Category[],
-    products: Product[]
-};
+
 export const data = {
     categories: [
         {
