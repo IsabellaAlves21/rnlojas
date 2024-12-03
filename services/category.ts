@@ -4,6 +4,6 @@ export function getAllCategories(){
     return data.categories;
 }
 
-export function getProductById(pId:number){
+export function getCategoryById(pId:number){
     return data.categories.find(item=>item.id===pId);
 }
