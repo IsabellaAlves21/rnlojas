@@ -1,37 +1,41 @@
-import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { ProductItem, FlatList, StyleSheet, View } from 'react-native';
-import { getCategoryById} from '../../../services/category';
-import { getProductsByCategory } from '../../../components/ProductItem/productItem';
-
+import { useLocalSearchParams } from 'expo-router';
+import { FlatList,StyleSheet, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { ProductItem } from '../../../components/ProductItem/productItem';
+import { getProductsByCategory } from '../../../services/product';
+import { getCategoryById } from '../../../services/category';
+import { router } from 'expo-router';
 
 export default function category() {
-    // resgatar o id da categoria enviado na rota dinamica
-  const { id } = useLocalSearchParams();
-  const idCategory = parseInt(id as string); //Casting
-  
-  const category = getCategoryById(idCategory);
-  if (!category) return router.back();
-  
-  const products = getProductsByCategory(idCategory);
-  const category = getCategoryById(idCategory);
+
+    // resgatar o id da categoria enviado na rota dinâmica
+    const { id } = useLocalSearchParams();
+    const idCategory = parseInt(id as string); //Casting
+    
+    const category = getCategoryById(idCategory);
+    if (!category) return router.back();
+
+    const products = getProductsByCategory (idCategory);
 
     return (
-    <View style={styles.container}>
-        <FlatList
+        <View style={styles.container}>
+        <Stack.Screen options={{title:category.title}} />
+          <FlatList
         data={products}
-        //informou a fonte de dados
+        // informou a fonte de dados
         renderItem={({item})=><ProductItem productData={item}/>}
-        //função responsável por renderizar cada item
-        keyExtractor={item=>item.id.toString()}
-        />
-    </View>
-  );
+         // função responsável por renderizar cada item
+         keyExtractor={item=>item.id.toString()}
+        /> 
+
+     </View>
+    );
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex:1,
-        marginHorizontal: 8
+        marginHorizontal:8
     }
 });
